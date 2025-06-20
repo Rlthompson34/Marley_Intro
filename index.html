@@ -1,27 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Marley Intro</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      background-color: black;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       overflow: hidden;
+      flex-direction: column;
     }
     video {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
+      max-width: 100%;
+      height: auto;
+    }
+    #continue {
+      display: none;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: white;
+      color: black;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
-  <video playsinline controls>
-    <source src="https://res.cloudinary.com/dhcido4yt/video/upload/Marley_Intro_V2_4K_HIGH_FR30_qkj1my.mp4" type="video/mp4" />
+
+  <video id="intro" autoplay muted playsinline>
+    <source src="https://res.cloudinary.com/YOUR-LINK-HERE.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+
+  <button id="continue">Click to Continue</button>
+
+  <script>
+    const vid = document.getElementById("intro");
+    const btn = document.getElementById("continue");
+
+    vid.addEventListener("ended", () => {
+      window.location.href = "https://grind29.carrd.co";
+    });
+
+    setTimeout(() => {
+      if (!vid.ended) {
+        btn.style.display = "block";
+      }
+    }, 18000); // adjust if your video is longer or shorter
+
+    btn.addEventListener("click", () => {
+      window.location.href = "https://grind29.carrd.co";
+    });
+  </script>
+
 </body>
 </html>
